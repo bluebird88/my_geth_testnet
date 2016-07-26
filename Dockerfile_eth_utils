@@ -1,0 +1,18 @@
+FROM yanhk/ethereum_multi_testnet
+MAINTAINER bluebirdyan@qq.com
+
+##构建基于geth-utils的测试环境
+RUN mkdir -p /root/workspace/ethereum/geth_utils_env
+RUN echo 'export geth_utils_root=/root/workspace/ethereum/geth_utils_env' >> /root/.bashrc
+WORKDIR /root/workspace/ethereum/geth_utils_env
+ADD ./eth-utils ./eth-utils
+RUN chmod +x ./eth-utils/*.sh
+RUN mkdir ./Geth_Root
+
+EXPOSE 8000 8001 8002 8003 8004 8005 8006 8007 8008 8009
+
+EXPOSE 30300 30301 30302 30303 30304 30305 30306 30307 30308 30309
+
+EXPOSE 8080 8081 8082 8083 8084 8085
+
+CMD service ssh start
