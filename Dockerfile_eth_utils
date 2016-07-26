@@ -4,10 +4,11 @@ MAINTAINER bluebirdyan@qq.com
 ##构建基于geth-utils的测试环境
 RUN mkdir -p /root/workspace/ethereum/geth_utils_env
 RUN echo 'export geth_utils_root=/root/workspace/ethereum/geth_utils_env' >> /root/.bashrc
+RUN echo 'cd /root/workspace/ethereum/geth_utils_env && echo "geth network root:$geth_utils_root ,enjoy it"'
 WORKDIR /root/workspace/ethereum/geth_utils_env
 ADD ./eth-utils ./eth-utils
 RUN chmod +x ./eth-utils/*.sh
-RUN mkdir ./Geth_Root
+RUN mkdir ./eth-utils/Geth_Root
 
 EXPOSE 8000 8001 8002 8003 8004 8005 8006 8007 8008 8009
 
